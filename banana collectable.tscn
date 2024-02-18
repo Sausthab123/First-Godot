@@ -1,0 +1,148 @@
+[gd_scene load_steps=22 format=3 uid="uid://dwgftmkdo1j18"]
+
+[ext_resource type="Texture2D" uid="uid://bpnq6pmgiu7ui" path="res://Pixel Adventure 1/Free/Items/Fruits/Bananas.png" id="1_cy0y2"]
+[ext_resource type="Script" path="res://banana collectable.gd" id="1_dkeyo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brcla"]
+atlas = ExtResource("1_cy0y2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up3da"]
+atlas = ExtResource("1_cy0y2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thnec"]
+atlas = ExtResource("1_cy0y2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e53w"]
+atlas = ExtResource("1_cy0y2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1ci7"]
+atlas = ExtResource("1_cy0y2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk3n0"]
+atlas = ExtResource("1_cy0y2")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuedl"]
+atlas = ExtResource("1_cy0y2")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jj0ly"]
+atlas = ExtResource("1_cy0y2")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tcvl"]
+atlas = ExtResource("1_cy0y2")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcynw"]
+atlas = ExtResource("1_cy0y2")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqdf5"]
+atlas = ExtResource("1_cy0y2")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btqxa"]
+atlas = ExtResource("1_cy0y2")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itsun"]
+atlas = ExtResource("1_cy0y2")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vor1"]
+atlas = ExtResource("1_cy0y2")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnhva"]
+atlas = ExtResource("1_cy0y2")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_526mi"]
+atlas = ExtResource("1_cy0y2")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24ewi"]
+atlas = ExtResource("1_cy0y2")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ylv5o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brcla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up3da")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thnec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e53w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1ci7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xk3n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuedl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jj0ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tcvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcynw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqdf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btqxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itsun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vor1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnhva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_526mi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24ewi")
+}],
+"loop": true,
+"name": &"floating banana",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hl1al"]
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_dkeyo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ylv5o")
+animation = &"floating banana"
+autoplay = "floating banana"
+frame_progress = 0.72914
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hl1al")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
